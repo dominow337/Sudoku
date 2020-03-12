@@ -1,0 +1,612 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+        : TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+int TAB[81], y=0, i;
+void sprawdz(int x, int z)
+{
+        i=0;
+    int v = z;
+    for (z = z + 9; z < 81; z = z + 9)
+    {
+        if (TAB[z] == x)
+        {
+            i++;
+            break;
+        }
+    }
+    z = v;
+    for (z = z - 9; z > 0; z = z - 9)
+    {
+        if (TAB[z] == x)
+        {
+            i++;
+            break;
+        }
+    }
+    z = v;
+    if (z < 27)
+    {
+        if (z < 3 || (z > 9 && z < 12) || (z > 18 && z < 21))
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = 9; j < 12; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = 18; j < 21; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            
+ 
+        }
+        else if ((z > 2 && z < 6) || (z > 11 && z < 15) || (z > 20 && z < 24))
+        {
+            for (int j = 3; j < 3; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = z + 9; j < 12 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = z + 18; j < 21 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            
+        }
+        else
+        {
+            for (int j = z; j < 3 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = z + 9; j < 12 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = z + 18; j < 21 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            
+        }
+    }
+    else if (z > 26 && z < 54)
+    {
+        if ((z > 27 && z < 30) || (z > 36 && z < 39) || (z > 45 && z < 48))
+        {
+            for (int j = z; j < 3 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = z + 9; j < 12 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = z + 18; j < 21 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            
+        }
+        else if ((z > 30 && z < 33) || (z > 39 && z < 42) || (z > 48 && z < 51))
+        {
+            for (int j = z; j < 3 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = z + 9; j < 12 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = z + 18; j < 21 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            
+        }
+        else
+        {
+            for (int j = z; j < 3 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = z + 9; j < 12 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = z + 18; j < 21 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            
+        }
+    }
+    else
+    {
+        if ((z > 54 && z < 57) || (z > 63 && z < 66) || (z > 72 && z < 75))
+        {
+            for (int j = z; j < 3 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = z + 9; j < 12 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = z + 18; j < 21 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            
+        }
+        else if ((z > 57 && z < 60) || (z > 66 && z < 69) || (z > 75 && z < 78))
+        {
+            for (int j = z; j < 3 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = z + 9; j < 12 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = z + 18; j < 21 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            
+        }
+        else
+        {
+            for (int j = z; j < 3 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = z + 9; j < 12 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            for (int j = z + 18; j < 21 + z; j++)
+            {
+                if (TAB[j] == x)
+                {
+                    i++;
+                    break;
+                }
+            }
+            
+        }
+    }
+}
+
+void __fastcall TForm1::FormCreate(TObject *Sender)
+{
+for(int i=0;i<81;i++)
+{
+TAB[i]=0;
+}
+Image1->Picture->LoadFromFile("img/nic.bmp");
+Image2->Picture->LoadFromFile("img/nic.bmp");
+Image3->Picture->LoadFromFile("img/nic.bmp");
+Image4->Picture->LoadFromFile("img/nic.bmp");
+Image5->Picture->LoadFromFile("img/nic.bmp");
+Image6->Picture->LoadFromFile("img/nic.bmp");
+Image7->Picture->LoadFromFile("img/nic.bmp");
+Image8->Picture->LoadFromFile("img/nic.bmp");
+Image9->Picture->LoadFromFile("img/nic.bmp");
+Image10->Picture->LoadFromFile("img/nic.bmp");
+Image11->Picture->LoadFromFile("img/nic.bmp");
+Image12->Picture->LoadFromFile("img/nic.bmp");
+Image13->Picture->LoadFromFile("img/nic.bmp");
+Image14->Picture->LoadFromFile("img/nic.bmp");
+Image15->Picture->LoadFromFile("img/nic.bmp");
+Image16->Picture->LoadFromFile("img/nic.bmp");
+Image17->Picture->LoadFromFile("img/nic.bmp");
+Image18->Picture->LoadFromFile("img/nic.bmp");
+Image19->Picture->LoadFromFile("img/nic.bmp");
+Image20->Picture->LoadFromFile("img/nic.bmp");
+Image21->Picture->LoadFromFile("img/nic.bmp");
+Image22->Picture->LoadFromFile("img/nic.bmp");
+Image23->Picture->LoadFromFile("img/nic.bmp");
+Image24->Picture->LoadFromFile("img/nic.bmp");
+Image25->Picture->LoadFromFile("img/nic.bmp");
+Image26->Picture->LoadFromFile("img/nic.bmp");
+Image27->Picture->LoadFromFile("img/nic.bmp");
+Image28->Picture->LoadFromFile("img/nic.bmp");
+Image29->Picture->LoadFromFile("img/nic.bmp");
+Image30->Picture->LoadFromFile("img/nic.bmp");
+Image31->Picture->LoadFromFile("img/nic.bmp");
+Image32->Picture->LoadFromFile("img/nic.bmp");
+Image33->Picture->LoadFromFile("img/nic.bmp");
+Image34->Picture->LoadFromFile("img/nic.bmp");
+Image35->Picture->LoadFromFile("img/nic.bmp");
+Image36->Picture->LoadFromFile("img/nic.bmp");
+Image37->Picture->LoadFromFile("img/nic.bmp");
+Image38->Picture->LoadFromFile("img/nic.bmp");
+Image39->Picture->LoadFromFile("img/nic.bmp");
+Image40->Picture->LoadFromFile("img/nic.bmp");
+Image41->Picture->LoadFromFile("img/nic.bmp");
+Image42->Picture->LoadFromFile("img/nic.bmp");
+Image43->Picture->LoadFromFile("img/nic.bmp");
+Image44->Picture->LoadFromFile("img/nic.bmp");
+Image45->Picture->LoadFromFile("img/nic.bmp");
+Image46->Picture->LoadFromFile("img/nic.bmp");
+Image47->Picture->LoadFromFile("img/nic.bmp");
+Image48->Picture->LoadFromFile("img/nic.bmp");
+Image49->Picture->LoadFromFile("img/nic.bmp");
+Image50->Picture->LoadFromFile("img/nic.bmp");
+Image51->Picture->LoadFromFile("img/nic.bmp");
+Image52->Picture->LoadFromFile("img/nic.bmp");
+Image53->Picture->LoadFromFile("img/nic.bmp");
+Image54->Picture->LoadFromFile("img/nic.bmp");
+Image55->Picture->LoadFromFile("img/nic.bmp");
+Image56->Picture->LoadFromFile("img/nic.bmp");
+Image57->Picture->LoadFromFile("img/nic.bmp");
+Image58->Picture->LoadFromFile("img/nic.bmp");
+Image59->Picture->LoadFromFile("img/nic.bmp");
+Image60->Picture->LoadFromFile("img/nic.bmp");
+Image61->Picture->LoadFromFile("img/nic.bmp");
+Image62->Picture->LoadFromFile("img/nic.bmp");
+Image63->Picture->LoadFromFile("img/nic.bmp");
+Image64->Picture->LoadFromFile("img/nic.bmp");
+Image65->Picture->LoadFromFile("img/nic.bmp");
+Image66->Picture->LoadFromFile("img/nic.bmp");
+Image67->Picture->LoadFromFile("img/nic.bmp");
+Image68->Picture->LoadFromFile("img/nic.bmp");
+Image69->Picture->LoadFromFile("img/nic.bmp");
+Image70->Picture->LoadFromFile("img/nic.bmp");
+Image71->Picture->LoadFromFile("img/nic.bmp");
+Image72->Picture->LoadFromFile("img/nic.bmp");
+Image73->Picture->LoadFromFile("img/nic.bmp");
+Image74->Picture->LoadFromFile("img/nic.bmp");
+Image75->Picture->LoadFromFile("img/nic.bmp");
+Image76->Picture->LoadFromFile("img/nic.bmp");
+Image77->Picture->LoadFromFile("img/nic.bmp");
+Image78->Picture->LoadFromFile("img/nic.bmp");
+Image79->Picture->LoadFromFile("img/nic.bmp");
+Image80->Picture->LoadFromFile("img/nic.bmp");
+Image81->Picture->LoadFromFile("img/nic.bmp");
+
+jeden->Picture->LoadFromFile("img/jeden.bmp");
+dwa->Picture->LoadFromFile("img/dwa.bmp");
+trzy->Picture->LoadFromFile("img/trzy.bmp");
+cztery->Picture->LoadFromFile("img/cztery.bmp");
+piec->Picture->LoadFromFile("img/piec.bmp");
+szesc->Picture->LoadFromFile("img/szesc.bmp");
+siedem->Picture->LoadFromFile("img/siedem.bmp");
+osiem->Picture->LoadFromFile("img/osiem.bmp");
+dziewiec->Picture->LoadFromFile("img/dziewiec.bmp");
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::jedenClick(TObject *Sender)
+{
+        y = 1;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::dwaClick(TObject *Sender)
+{
+        y = 2;        
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::trzyClick(TObject *Sender)
+{
+        y = 3;        
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::czteryClick(TObject *Sender)
+{
+        y = 4;        
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::piecClick(TObject *Sender)
+{
+        y = 5;        
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::szescClick(TObject *Sender)
+{
+        y = 6;
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::siedemClick(TObject *Sender)
+{
+        y = 7;        
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::osiemClick(TObject *Sender)
+{
+        y = 8;
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::dziewiecClick(TObject *Sender)
+{
+        y = 9;
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image1Click(TObject *Sender)
+{
+        if(y==1)
+        {
+        sprawdz(y, 1);
+        }
+        else if(y==2)
+        {
+        sprawdz(y, 1);
+        }
+        else if(y==3)
+        {
+        sprawdz(y, 1);
+        }
+        else if(y==4)
+        {
+        sprawdz(y, 1);
+        }
+        else if(y==5)
+        {
+        sprawdz(y, 1);
+        }
+        else if(y==6)
+        {
+        sprawdz(y, 1);
+        }
+        else if(y==7)
+        {
+        sprawdz(y, 1);
+        }
+        else if(y==8)
+        {
+        sprawdz(y, 1);
+        }
+        else if(y==9)
+        {
+        sprawdz(y, 1);
+        }
+
+        if(i==0)
+        {
+        if(y==1)
+        {
+        Image1->Picture->LoadFromFile("img/jeden.bmp");
+        }
+        else if(y==2)
+        {
+        Image1->Picture->LoadFromFile("img/dwa.bmp");
+        }
+        else if(y==3)
+        {
+        Image1->Picture->LoadFromFile("img/trzy.bmp");
+        }
+        else if(y==4)
+        {
+        Image1->Picture->LoadFromFile("img/cztery.bmp");
+        }
+        else if(y==5)
+        {
+        Image1->Picture->LoadFromFile("img/piec.bmp");
+        }
+        else if(y==6)
+        {
+        Image1->Picture->LoadFromFile("img/szesc.bmp");
+        }
+        else if(y==7)
+        {
+        Image1->Picture->LoadFromFile("img/siedem.bmp");
+        }
+        else if(y==8)
+        {
+        Image1->Picture->LoadFromFile("img/osiem.bmp");
+        }
+        else if(y==9)
+        {
+        Image1->Picture->LoadFromFile("img/dziewiec.bmp");
+        }
+        Image1->Enabled=false;
+        }
+
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image2Click(TObject *Sender)
+{
+ if(y==1)
+        {
+        sprawdz(y, 2);
+        }
+        else if(y==2)
+        {
+        sprawdz(y, 2);
+        }
+        else if(y==3)
+        {
+        sprawdz(y, 2);
+        }
+        else if(y==4)
+        {
+        sprawdz(y, 2);
+        }
+        else if(y==5)
+        {
+        sprawdz(y, 2);
+        }
+        else if(y==6)
+        {
+        sprawdz(y, 2);
+        }
+        else if(y==7)
+        {
+        sprawdz(y, 2);
+        }
+        else if(y==8)
+        {
+        sprawdz(y, 2);
+        }
+        else if(y==9)
+        {
+        sprawdz(y, 2);
+        }
+
+        if(i==0)
+        {
+        if(y==1)
+        {
+        Image2->Picture->LoadFromFile("img/jeden.bmp");
+        }
+        else if(y==2)
+        {
+        Image2->Picture->LoadFromFile("img/dwa.bmp");
+        }
+        else if(y==3)
+        {
+        Image2->Picture->LoadFromFile("img/trzy.bmp");
+        }
+        else if(y==4)
+        {
+        Image2->Picture->LoadFromFile("img/cztery.bmp");
+        }
+        else if(y==5)
+        {
+        Image2->Picture->LoadFromFile("img/piec.bmp");
+        }
+        else if(y==6)
+        {
+        Image2->Picture->LoadFromFile("img/szesc.bmp");
+        }
+        else if(y==7)
+        {
+        Image2->Picture->LoadFromFile("img/siedem.bmp");
+        }
+        else if(y==8)
+        {
+        Image2->Picture->LoadFromFile("img/osiem.bmp");
+        }
+        else if(y==9)
+        {
+        Image2->Picture->LoadFromFile("img/dziewiec.bmp");
+        }
+        Image2->Enabled=false;
+        }
+
+}
+//---------------------------------------------------------------------------
